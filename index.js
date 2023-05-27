@@ -1,12 +1,42 @@
 // Html Rendering
 const http = require('http')
 const fs = require('fs')
+const qs = require('querystring')
 
 http.createServer((req,res)=>{
-    fs.readFile('./pages/index.html',(error,data)=>{
-        res.write(data)
-        res.end()
-    })
+    // console.log(req.url)
+    let url = req.url
+    // console.log(req.method)
+    let method = req.method
+    if(method == "POST"){
+        let data = ""
+        req.on('data',(d)=>{
+            data+=d
+        })
+        req.on('end',()=>{
+            console.log(qs.parse(data).name)
+        })
+    }
+    if(url == '/')
+    {
+        fs.readFile('./pages/index.html',(error,data)=>{
+            res.write(data)
+            res.end()
+        })
+    }else if(url == '/about')
+    {
+        fs.readFile('./pages/about.html',(error,data)=>{
+            res.write(data)
+            res.end()
+        })
+    }else if(url == '/contact')
+    {
+        fs.readFile('./pages/contact.html',(error,data)=>{
+            res.write(data)
+            res.end()
+        })
+    }
+  
 }).listen(9000,()=>{
     console.log("localhost:9000")
 })
@@ -20,7 +50,7 @@ http.createServer((req,res)=>{
 //     console.log('localhost : 9000')
 // })
 
-//File read model Aync
+//File read module Aync
 
 // const helper = require('./helper')
 // const fs = require('fs')
