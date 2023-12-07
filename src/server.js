@@ -18,19 +18,8 @@ app.use(cookieParser());
 app.use(morgan(`:date[clf] :method :url :status :response-time ms`));
 app.use(prefix,baseRouter);
 
-sequelize.authenticate().then(()=>{
-     console.log("connected")
-     sequelize.sync().then(() => {
-          console.log('Book table created successfully!');
-          app.listen(process.env.PORT,()=>{
-               console.log(`${process.env.PORT}`)
-          })
-       }).catch((error) => {
-          console.error('Unable to create table : ', error);
-       });
-    
-})
-.catch((err)=>{
-     console.log(err)
-})
 
+
+     app.listen(process.env.PORT,()=>{
+          console.log(`${process.env.PORT}`)
+     })
