@@ -2,38 +2,25 @@
   "name": "nodejs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --exec babel-node ./src/server.js"
+    "start": "nodemon --exec babel-node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MinKhant21/NodeJs.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MinKhant21/NodeJs/issues"
-  },
-  "homepage": "https://github.com/MinKhant21/NodeJs#readme",
   "dependencies": {
-    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
+    "dot-env": "^0.0.1",
     "express": "^4.18.2",
-    "morgan": "^1.10.0",
-    "mysql": "^2.18.1",
     "mysql2": "^3.6.5",
-    "nodemon": "^3.0.2",
-    "sequelize": "^6.35.1",
-    "uuid4": "^2.0.3"
+    "sequelize": "^6.35.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.4",
     "@babel/core": "^7.23.5",
     "@babel/node": "^7.22.19",
-    "@babel/preset-env": "^7.23.5"
+    "@babel/preset-env": "^7.23.5",
+    "nodemon": "^3.0.2"
   }
 }
